@@ -1,5 +1,4 @@
-# Python3 program imitating a clock server
-  
+
 from functools import reduce
 from dateutil import parser
 import threading
@@ -117,18 +116,15 @@ def initiateClockServer(port = 8080):
         
     master_server.bind(('', port))
   
-    # Start listening to requests
     master_server.listen(10)
     print("Servidor de relógio iniciado...\n")
   
-    # start making connections
     print("Começando a fazer conexões...\n")
     master_thread = threading.Thread(
                         target = startConnecting,
                         args = (master_server, ))
     master_thread.start()
   
-    # start synchroniztion
     print("Começando a sincronização paralelamente...\n")
     sync_thread = threading.Thread(
                           target = synchronizeAllClocks,
