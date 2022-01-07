@@ -1,5 +1,4 @@
-# Python3 program imitating a client process
-  
+ 
 from timeit import default_timer as timer
 from dateutil import parser
 import threading
@@ -11,7 +10,6 @@ import time
 def startSendingTime(slave_client):
   
     while True:
-        # provide server with clock time at the client
         slave_client.send(str(
                        datetime.datetime.now()).encode())
   
